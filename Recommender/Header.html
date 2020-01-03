@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>GameSpeed</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<!-- Links for Jquery and bootstrap css -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>
+<!-- jqurey script -->
+$(document).ready(function(){
+
+	$('#myCarousel').carousel({
+  interval: 3000
+})
+
+$('.carousel .item').each(function(){
+  var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().appendTo($(this));
+});
+});
+</script>
+<script type="text/javascript" src="javascript.js"></script>
+ <script>
+
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -33.866, lng: 151.196},
+          zoom: 15
+        });
+
+        var request = {
+          placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4',
+          fields: ['name', 'formatted_address', 'place_id', 'geometry']
+        };
+
+        var infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+
+        service.getDetails(request, function(place, status) {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
+            var marker = new google.maps.Marker({
+              map: map,
+              position: place.geometry.location
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                'Place ID: ' + place.place_id + '<br>' +
+                place.formatted_address + '</div>');
+              infowindow.open(map, this);
+            });
+          }
+        });
+      }
+    </script>
+<style>
+* {
+		box-sizing : unset;
+	}
+	
+.col-md-6{
+		width : 45% ! important;
+	}
+	 /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 250px;
+		width:250px;
+      }
+</style>	
+
+
+
+</head>
+<body onload="init()" style='margin: 0px !important; padding: 0 !important;	background-image: url("bg.jpg");	font-family: Georgia, "Times New Roman", Times, serif;	font-size: 12px !important;	'>
+	 <!--  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9fchyVplbIJyjiJ-udZ3BAAulSPVgCjs&libraries=places&callback=initMap"> -->
+    </script>
+	<!-- Start #logo top content of the webpage-->
+	<div id="logo">
+		<table style="float: left">
+			<tr>
+				<td style="valign: top;"><img src="images/site/GameON.png" alt=""
+					style="height: 80px" /></td>
+				<td><h1>
+						<a href="#">Best Places</a>
+					</h1></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><p>
+						<em>World's Best place for recommendations</em>
+					</p></td>
+			</tr>
+		</table>
+
+	</div>
+	<hr />
+	
+	<!-- end #logo -->
+	<!-- start #header -->
+	<!-- menu in header area the header div ends in utility file where header content right side link gets populated with login id cart and logout option -->
+	<div id="header">
+<!-- 		<div id="menu">
+			<ul>
+				
+ 				<li><a href="Home" class="first"><span class="glyphicon glyphicon-home">Home</span></a></li>
+				<li><a href="ConsoleList"><span class="glyphicon">Consoles</span></a></li>
+				<li><a href="GamesList"><span class="glyphicon">Games</span></a></li>
+				<li><a href="TabletList"><span class="glyphicon">Tablets</span></a></li>
+				<li><a href="Trending"><span class="glyphicon">Trending </span></a></li> 
+			</ul>
+		</div>	 -->
+		<!-- end #menu -->
+		
+				
+				
